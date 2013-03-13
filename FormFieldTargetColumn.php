@@ -39,11 +39,13 @@ class FormFieldTargetColumn extends Backend
 			$f_type = $objFormFields->type;
 			
 			$value = '';
-			if(!empty($arrData[$f_name]) && $objFormFields->targetColName != $f_name)
+			if($objFormFields->targetColName != $f_name)
 			{
 				$value = $arrData[$f_name];
-				$value = $this->formatValue($f_type,$value,$GLOBALS['TL_CONFIG']['dateFormat']);
-				
+				if(!empty($value) || strlen($value))
+				{
+					$value = $this->formatValue($f_type,$value,$GLOBALS['TL_CONFIG']['dateFormat']);
+				}
 				$newKey = $objFormFields->targetColName;
 		
 				// set new key
