@@ -22,3 +22,4 @@ $GLOBALS['TL_HOOKS']['storeFormData'][] 		= array('FormFieldTargetColumn', 'stor
  */
 $GLOBALS['FORMFIELD_DB_FIELD']['combine'] 		= true; 	// combine values of different fields with the same target column
 $GLOBALS['FORMFIELD_DB_FIELD']['seperator'] 	= ','; 		// seperate combined values with this character
+$GLOBALS['FORMFIELD_DB_FIELD']['ignore']		= array('PRIMARY'); // add fields to be ignored in the list

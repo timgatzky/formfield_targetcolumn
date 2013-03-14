@@ -108,6 +108,18 @@ class tl_form_field_form_db_field extends Backend
 		// fetch fields of target table
 		$arrReturn = $this->Database->getFieldNames($objForm->targetTable);				
 		
+		// fix #1: ignore PRIMARY in list. Added global to add more fields to the ignore list
+		if(count($arrReturn) > 0)
+		{
+			foreach($arrReturn as $i => $field)
+			{
+				if(in_array($field, $GLOBALS['FORMFIELD_DB_FIELD']['ignore']))
+				{
+					unset($arrReturn[$i]);
+				}
+			}
+		}
+		
 		// order
 		sort($arrReturn);
 		
